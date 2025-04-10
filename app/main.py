@@ -1,4 +1,3 @@
-# Install the FastAPI module in your environment by running `pip install fastapi` in the terminal.
 from fastapi import FastAPI
 
 app = FastAPI()
