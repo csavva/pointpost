@@ -1,4 +1,9 @@
+import uvicorn
+import os
+import dotenv
 from fastapi import FastAPI
+
+dotenv.load_dotenv()
 
 app = FastAPI()
 
@@ -67,3 +72,9 @@ def restore_post(slug: str, version_id: int):
 def get_rss():
     #TODO: Implement logic to get RSS feed
     pass
+
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", os.getenv("PORT", 8080)))
+    host = os.getenv("HOST", "0.0.0.0")
+    uvicorn.run(app, host=host, port=port)
