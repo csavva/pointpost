@@ -81,11 +81,9 @@ class PostVersionRead(PostVersionBase):
 
 class UserBase(BaseModel):
     email: str
-    hashed_password: str
-    is_active: bool = True
-    is_superuser: bool = False
 
-class UserCreate(UserBase):
+class UserCreate(BaseModel):
+    email: str
     password: str
 
 class UserUpdate(UserBase):
@@ -94,6 +92,8 @@ class UserUpdate(UserBase):
 class UserRead(UserBase):
     id: str
     created_at: str
+    is_active: bool = True
+    is_superuser: bool = False
 
     class Config:
         orm_mode = True

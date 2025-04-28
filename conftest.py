@@ -80,7 +80,7 @@ async def async_client(setup_test_database):
         yield client
 
 async def truncate_tables(session: AsyncSession):
-    await session.execute(text('TRUNCATE TABLE posts RESTART IDENTITY CASCADE'))
+    await session.execute(text('TRUNCATE TABLE posts, users RESTART IDENTITY CASCADE'))
     await session.commit()
 
 @pytest_asyncio.fixture(autouse=True)

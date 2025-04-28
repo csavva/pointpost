@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Boolean
 from app.db.postgres import Base
 
 
@@ -39,6 +39,6 @@ class User(Base):
     id = Column(String, primary_key=True, index=True)
     email = Column(String, unique=True, nullable=False)
     hashed_password = Column(String, nullable=False)
-    is_active = Column(String, default=True)
-    is_superuser = Column(String, default=False)
+    is_active = Column(Boolean, default=True)
+    is_superuser = Column(Boolean, default=False)
     created_at = Column(String, nullable=False)
